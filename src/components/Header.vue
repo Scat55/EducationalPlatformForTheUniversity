@@ -1,5 +1,8 @@
 <script setup>
 import { RouterLink } from 'vue-router';
+import { useCounterStore } from '../stores/counter';
+
+const status = useCounterStore();
 </script>
 
 <template>
@@ -16,27 +19,24 @@ import { RouterLink } from 'vue-router';
         </RouterLink>
         <div class="header__logo-lists">
           <ul class="header__logo-list">
-            <RouterLink
-              to="/reg"
-              class="router"
-            >
-              <li class="header__logo-item">Задания</li>
-            </RouterLink>
+            <li
+              class="header__logo-item"
+              @click="status.statusForm = true"
+            >Задания</li>
             <li class="header__logo-item">О нас</li>
             <li class="header__logo-item">Полезное</li>
-            <RouterLink
-              to="/reg"
-              class="router"
+            <li
+              class="header__logo-item login"
+              @click="status.statusForm = true"
             >
-              <li class="header__logo-item login">
-                <img
-                  src="../assets/images/userLog.png"
-                  alt=""
-                  class="log"
-                >
-                Войти
-              </li>
-            </RouterLink>
+              <img
+                src="../assets/images/userLog.png"
+                alt=""
+                class="log"
+              >
+              Войти
+            </li>
+
           </ul>
         </div>
 
@@ -101,5 +101,4 @@ import { RouterLink } from 'vue-router';
 
 .log {
   width: 1.5rem;
-}
-</style>
+}</style>

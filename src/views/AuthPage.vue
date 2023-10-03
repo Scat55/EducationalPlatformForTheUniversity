@@ -1,18 +1,12 @@
 <script setup>
 import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
-
-const proffesion = [{ id: 0, name: 'Ученик' }, { id: 0, name: 'Учитель' }]
 
 const userName = ref('');
 const userPass = ref('')
-const userProf = ref({})
 
 const handler = () => {
-  console.log(`${userName.value}, ${userPass.value}, ${userProf.value}`)
-  router.push('/')
+  console.log(`${userName.value}, ${userPass.value}`)
+  // router.push('/')
 }
 </script>
 
@@ -25,9 +19,9 @@ const handler = () => {
         class="reg__form"
         @submit.prevent="handler()"
       >
-        <p class="reg__form-title">Регистрация</p>
+        <p class="reg__form-title">Вход</p>
         <div class="reg__info">
-          <span class="reg__info-name ">Имя</span>
+          <span class="reg__info-name ">Имя, фамилия</span>
           <input
             type="text"
             class="reg__input name"
@@ -42,36 +36,18 @@ const handler = () => {
             v-model="userPass"
           >
         </div>
-        <select
-          name="proffesion"
-          id="proffesion"
-          class="reg__form-prof"
-          v-model="userProf"
-        >
-          <option
-            v-for="prof in proffesion"
-            :value="prof.name"
-            class="reg__from-option"
-          >
-            {{ prof.name }}
-          </option>
-        </select>
+
         <button
           class="reg__form-btn"
           type="submit"
-        >Зарегестрироваться</button>
-        <p>Есть аккаут? <span
-            class="reg__auth"
-            @click="router.push('/')"
-          > Войти</span> </p>
+        >Войти</button>
+
       </form>
 
 
     </div>
   </div>
 </template>
-
-
 
 <style lang="scss" scoped>
 @import '../assets/styles/styles.scss';
@@ -101,15 +77,7 @@ const handler = () => {
       font-size: 1.3rem;
     }
 
-    &-prof {
-      width: 18rem;
-      border: 1px solid $accentColor;
-      border-radius: 0.5rem;
-      padding: .625rem 1.25rem;
-      font-family: Visitor;
-      font-size: 1rem;
-      outline: none;
-    }
+
 
     &-btn {
       padding: .625rem;
@@ -148,10 +116,7 @@ const handler = () => {
     font-size: 1rem;
   }
 
-  &__auth {
-    cursor: pointer;
-    color: $accentColor;
-  }
+
 }
 
 .name {
