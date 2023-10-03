@@ -60,7 +60,13 @@ const handler = () => {
           class="reg__form-btn"
           type="submit"
         >Зарегестрироваться</button>
+        <p>Есть аккаут? <span
+            class="reg__auth"
+            @click="router.push('/')"
+          > Войти</span> </p>
       </form>
+
+
     </div>
   </div>
 </template>
@@ -140,7 +146,11 @@ const handler = () => {
     outline: none;
     background-color: transparent;
     font-size: 1rem;
+  }
 
+  &__auth {
+    cursor: pointer;
+    color: $accentColor;
   }
 }
 
