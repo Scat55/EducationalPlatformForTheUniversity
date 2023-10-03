@@ -16,14 +16,26 @@ import { RouterLink } from 'vue-router';
         </RouterLink>
         <div class="header__logo-lists">
           <ul class="header__logo-list">
-            <li class="header__logo-item">Задания</li>
+            <RouterLink
+              to="/reg"
+              class="router"
+            >
+              <li class="header__logo-item">Задания</li>
+            </RouterLink>
             <li class="header__logo-item">О нас</li>
             <li class="header__logo-item">Полезное</li>
             <RouterLink
               to="/reg"
               class="router"
             >
-              <li class="header__logo-item login">Войти</li>
+              <li class="header__logo-item login">
+                <img
+                  src="../assets/images/userLog.png"
+                  alt=""
+                  class="log"
+                >
+                Войти
+              </li>
             </RouterLink>
           </ul>
         </div>
@@ -78,9 +90,16 @@ import { RouterLink } from 'vue-router';
 }
 
 .login {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   color: $whiteColor;
   background-color: $lightBlueColor;
   padding: .625rem 1.25rem;
   border-radius: 1rem;
+}
+
+.log {
+  width: 1.5rem;
 }
 </style>
