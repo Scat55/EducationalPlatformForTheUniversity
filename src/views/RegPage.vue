@@ -1,5 +1,9 @@
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
 const proffesion = [{ id: 0, name: 'Ученик' }, { id: 0, name: 'Учитель' }]
 
 const userName = ref('');
@@ -8,6 +12,7 @@ const userProf = ref({})
 
 const handler = () => {
   console.log(`${userName.value}, ${userPass.value}, ${userProf.value}`)
+  router.push('/')
 }
 </script>
 
