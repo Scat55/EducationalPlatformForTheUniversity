@@ -22,7 +22,7 @@ export default {
 @import '../assets/styles/styles.scss';
 
 .task {
-  border: 1px solid #018bd3;
+  border: 2px solid $lightBlueColor;
   border-radius: 1rem;
   margin-bottom: 15px;
   display: grid;
@@ -30,13 +30,18 @@ export default {
   grid-template-rows: repeat(3, 1fr);
 }
 
+.task:hover {
+  border: 3px solid #00DFCC;
+}
+
 .title {
   margin-top: 15px;
   grid-column: 1 / span 4;
   grid-row: 1 / span 1;
   font-size: 20px;
-  border-bottom: 1px solid #018bd3;
+  border-bottom: 1px solid $lightBlueColor;
 }
+
 
 .topic {
   grid-column: 1 / span 1;
