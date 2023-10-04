@@ -14,7 +14,7 @@ export default {
     <div class="title">{{task.title}}</div>
     <div class="topic">Предмет: {{task.topic}}</div>
     <div class="complexity">{{task.complexity}}</div>
-    <div class="bodyTask">Краткое описание: {{task.bodyTask}}</div>
+    <div class="bodyTask">{{task.bodyTask}}</div>
   </div>
 </template>
 
