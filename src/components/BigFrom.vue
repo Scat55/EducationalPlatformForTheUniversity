@@ -18,9 +18,17 @@ const changeStatusOnTrue = () => {
       <p class="big__subtitle">Зарегестируйтесь и получайте знания</p>
 
       <div class="big__content">
-        <p class="big__content-text">Обучение может быть не только полезным, но и увлекательным! Попробуйте наши
-          образовательные игры и квизы,
-          разработанные для закрепления и проверки знаний в интерактивной форме. Играя, вы будете учиться быстрее!</p>
+        <div class="big__content-info">
+          <p class="big__content-text">Обучение может быть не только полезным, но и увлекательным! Попробуйте наши
+            образовательные игры и квизы,
+            разработанные для закрепления и проверки знаний в интерактивной форме. Играя, вы будете учиться быстрее!</p>
+
+          <p class="big__content-text">Общение и обмен опытом - ключевые компоненты успешного образования. На нашей
+            платформе вы найдете
+            единомышленников, готовых поделиться своими знаниями, ответить на ваши вопросы и помочь в решении сложных
+            задач.
+          </p>
+        </div>
         <div class="big__content-robot">
           <img
             src="../assets/images/spaceMan.png"
@@ -51,20 +59,27 @@ const changeStatusOnTrue = () => {
     font-size: 2rem;
     padding-top: 2.25rem;
     color: $whiteColor;
+
   }
 
   &__subtitle {
     color: $whiteColor;
-
+    margin-bottom: 3rem;
   }
 
   &__content {
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: space-between;
 
     &-img {
       width: 30rem;
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
     }
 
     &-robot {
