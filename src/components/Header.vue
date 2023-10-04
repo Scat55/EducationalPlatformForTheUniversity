@@ -20,7 +20,7 @@ const changeStatusOnTrue = () => {
       <div class="header__logo">
         <RouterLink to="/">
           <img
-            src="../assets/images/ЛОГО3.png"
+            src="../assets/images/Logo_px.png"
             alt="Logo"
             class="header__logo-img"
           >
@@ -74,7 +74,7 @@ const changeStatusOnTrue = () => {
 
 
     &-img {
-      width: 4.3rem;
+      width: 5.3rem;
       margin-top: .625rem;
       margin-bottom: 1rem;
     }

@@ -77,7 +77,7 @@ const changeStatusOnTrue = () => {
     line-height: 140%;
     letter-spacing: 0.2rem;
     font-size: 1.1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
     text-align: justify;
   }
 

@@ -2,6 +2,7 @@
 import Header from '@/components/Header.vue';
 import RegForm from '@/components/RegForm.vue';
 import Robot from '../components/Robot.vue';
+import Computer from '../components/Computer.vue';
 import { useCounterStore } from '../stores/counter';
 
 
@@ -18,7 +19,7 @@ const status = useCounterStore()
 
   <main class="main">
     <Robot />
-
+    <Computer />
   </main>
 </template>
 
