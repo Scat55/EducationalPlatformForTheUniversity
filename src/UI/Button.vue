@@ -1,5 +1,8 @@
 <template>
-  <button :class="{ active: isActive }" @click="toggleActive">
+  <button
+    :class="{ active: isActive }"
+    @click="toggleActive"
+  >
     <slot></slot>
   </button>
 </template>
@@ -18,7 +21,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '../../../test/src/assets/styles/styles';
+@import '../assets/styles/styles.scss';
 
 button {
   font-size: 0.96rem;
@@ -33,5 +36,4 @@ button {
 button.active {
   background-color: #018bd3;
   color: white;
-}
-</style>
+}</style>

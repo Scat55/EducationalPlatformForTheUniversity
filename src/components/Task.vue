@@ -11,15 +11,15 @@ export default {
 
 <template>
   <div class="task">
-    <div class="title">{{task.title}}</div>
-    <div class="topic">Предмет: {{task.topic}}</div>
-    <div class="complexity">{{task.complexity}}</div>
-    <div class="bodyTask">Краткое описание: {{task.bodyTask}}</div>
+    <div class="title">{{ task.title }}</div>
+    <div class="topic">Предмет: {{ task.topic }}</div>
+    <div class="complexity">{{ task.complexity }}</div>
+    <div class="bodyTask">Краткое описание: {{ task.bodyTask }}</div>
   </div>
 </template>
 
 <style scoped lang="scss">
-@import '../../../test/src/assets/styles/styles';
+@import '../assets/styles/styles.scss';
 
 .task {
   border: 1px solid #018bd3;
@@ -58,5 +58,4 @@ export default {
   text-align: left;
   margin: 0 20px 10px 20px;
 }
-
 </style>
