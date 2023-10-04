@@ -2,7 +2,8 @@
 
 const positive = [
   {
-    title: 'Не стандартные задачи',
+    title: 'Не стандартные',
+    subtitle: 'задачи',
     img: '../../src/assets/images/PIC_index/comp2.png'
   },
   {
@@ -14,7 +15,8 @@ const positive = [
     img: '../../src/assets/images/PIC_index/awards.png'
   },
   {
-    title: 'Только качественный материал',
+    title: 'Инновационные',
+    subtitle: 'материалы',
     img: '../../src/assets/images/PIC_index/materials.png'
   }
 ]
@@ -32,7 +34,10 @@ const positive = [
           v-for="plus in positive"
         >
 
-          <p class="positive__item-title"> {{ plus.title }}</p>
+          <div class="positive__content-text">
+            <p class="positive__item-title"> {{ plus.title }}</p>
+            <p class="positive__item-title"> {{ plus.subtitle }}</p>
+          </div>
 
           <img
             :src="plus.img"
@@ -68,6 +73,13 @@ const positive = [
     align-items: start;
     justify-content: space-between;
 
+    &-text {
+      display: flex;
+      flex-direction: column;
+      gap: 13rem;
+      align-items: center;
+
+    }
 
     &-item {
       position: relative;
@@ -90,6 +102,7 @@ const positive = [
   &__item {
 
     &-title {
+      display: flex;
       margin: 0.5rem;
       color: $whiteColor;
       font-size: 1.3rem;
