@@ -7,11 +7,13 @@
     <div class="container">
 
       <div class="footer__logo">
-        <img
-          src="../assets/images/Logo_px (2).png"
-          alt="Logo"
-          class="footer__logo-img"
-        >
+        <a href="#">
+          <img
+            src="../assets/images/Logo_px (2).png"
+            alt="Logo"
+            class="footer__logo-img"
+          >
+        </a>
         <p class="footer__logo-title">ЛГПУ имени П.П. Семенова-Тян-Шанского</p>
       </div>
     </div>
