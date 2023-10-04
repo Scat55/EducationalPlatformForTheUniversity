@@ -22,7 +22,7 @@ const status = useCounterStore();
           >Начать заниматься</button>
         </div>
         <img
-          src="../assets/images/robot/robot (1).png"
+          src="../assets/images/robot/Myrobot.png"
           alt="Robot"
         >
       </div>
