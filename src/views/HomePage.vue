@@ -6,6 +6,7 @@ import Computer from '../components/Computer.vue';
 import Positive from '../components/Positive.vue';
 import BigForm from '../components/BigFrom.vue';
 import LastInfo from '../components/LastInfo.vue';
+import Footer from '../components/Footer.vue';
 import { useCounterStore } from '../stores/counter';
 
 
@@ -27,6 +28,10 @@ const status = useCounterStore()
     <BigForm />
     <LastInfo />
   </main>
+
+  <footer>
+    <Footer />
+  </footer>
 </template>
 
 
