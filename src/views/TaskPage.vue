@@ -3,6 +3,7 @@ import Header from "@/components/Header.vue";
 import Button from "@/UI/Button.vue";
 import FilterItems from "@/components/FilterItems.vue";
 import ComplexityTasks from "@/components/ComplexityTasks.vue";
+import Footer from "@/components/Footer.vue";
 </script>
 <script>
 import Task from "@/components/Task.vue";
@@ -91,6 +92,7 @@ export default {
     </div>
 
   </div>
+  <Footer/>
 </template>
 
 <style scoped lang="scss">
@@ -146,6 +148,8 @@ export default {
   grid-row: 2 / span 1;
   text-align: center;
   border: none;
+  overflow-x: hidden;
+  overflow-y:auto;
 }
 
 </style>
