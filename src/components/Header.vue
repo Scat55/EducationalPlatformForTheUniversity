@@ -6,13 +6,10 @@ const status = useCounterStore();
 
 const body = document.querySelector('body')
 
-
 const changeStatusOnTrue = () => {
   status.statusForm = true
   body.style.overflow = "hidden"
 }
-
-
 
 </script>
 
@@ -32,7 +29,7 @@ const changeStatusOnTrue = () => {
           <ul class="header__logo-list">
             <li
               class="header__logo-item"
-              @click="status.statusForm = true"
+              @click="changeStatusOnTrue()"
             >Задания</li>
             <li class="header__logo-item">О нас</li>
             <li class="header__logo-item">Полезное</li>

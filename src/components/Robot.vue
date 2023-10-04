@@ -1,7 +1,17 @@
 <script setup>
+
+
 import { useCounterStore } from '../stores/counter';
 
 const status = useCounterStore();
+
+const body = document.querySelector('body')
+
+const changeStatusOnTrue = () => {
+  status.statusForm = true
+  body.style.overflow = "hidden"
+}
+
 </script>
 
 <template>
@@ -18,7 +28,7 @@ const status = useCounterStore();
             удовольствием и эффективностью. Присоединяйтесь к команде передовых мыслителей!</p>
           <button
             class="robot__btn"
-            @click="status.statusForm = true"
+            @click="changeStatusOnTrue()"
           >Начать заниматься</button>
         </div>
         <img
