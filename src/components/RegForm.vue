@@ -20,13 +20,13 @@ const handler = () => {
 </script>
 
 <template>
-  <div class="reg">
+  <div class="reg ">
 
     <div class="container">
 
       <form
         action="#"
-        class="reg__form"
+        class="reg__form no-scroll"
         @submit.prevent="handler()"
       >
 
@@ -99,6 +99,7 @@ const handler = () => {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.3);
 
+
   &__form {
     position: relative;
     display: flex;
@@ -126,6 +127,11 @@ const handler = () => {
       top: 1.25rem;
       right: 1.25rem;
       cursor: pointer;
+      transition: all .3s;
+
+      &:hover {
+        transform: rotate(-90deg);
+      }
     }
 
     &-prof {

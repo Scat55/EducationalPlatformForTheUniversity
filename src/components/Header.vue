@@ -53,7 +53,7 @@ const status = useCounterStore();
 
 .header {
   color: $whiteColor;
-  margin-bottom: 3.125rem;
+
 
   &__logo {
     display: flex;
@@ -101,4 +101,5 @@ const status = useCounterStore();
 
 .log {
   width: 1.5rem;
-}</style>
+}
+</style>
