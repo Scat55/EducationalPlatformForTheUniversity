@@ -103,7 +103,7 @@ const changeStatusOnFalse = () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 125vh;
   background-color: rgba(0, 0, 0, 0.3);
 
 

@@ -78,6 +78,7 @@ const changeStatusOnTrue = () => {
     letter-spacing: 0.2rem;
     font-size: 1.1rem;
     margin-bottom: 1rem;
+    text-align: justify;
   }
 
   &__btn {
