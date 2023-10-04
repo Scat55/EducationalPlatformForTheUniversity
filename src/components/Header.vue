@@ -54,7 +54,6 @@ const status = useCounterStore();
 .header {
   color: $whiteColor;
 
-
   &__logo {
     display: flex;
     align-items: center;
@@ -63,6 +62,7 @@ const status = useCounterStore();
     padding: 0 3rem;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
+    box-shadow: 0 0 10px 2px $accentColor;
 
 
     &-img {
