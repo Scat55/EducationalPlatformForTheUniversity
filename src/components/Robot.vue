@@ -1,6 +1,7 @@
-
 <script setup>
+import { useCounterStore } from '../stores/counter';
 
+const status = useCounterStore();
 </script>
 
 <template>
@@ -15,7 +16,10 @@
           alt="Robot"
         >
       </div>
-      <button class="robot__btn">Начать заниматься</button>
+      <button
+        class="robot__btn"
+        @click="status.statusForm = true"
+      >Начать заниматься</button>
     </div>
 
 
