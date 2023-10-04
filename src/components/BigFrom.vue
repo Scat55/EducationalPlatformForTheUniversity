@@ -1,5 +1,14 @@
 <script setup>
+import { useCounterStore } from '../stores/counter';
 
+const status = useCounterStore();
+
+const body = document.querySelector('body')
+
+const changeStatusOnTrue = () => {
+  status.statusForm = true
+  body.style.overflow = "hidden"
+}
 </script>
 
 <template>
@@ -9,38 +18,21 @@
       <p class="big__subtitle">Зарегестируйтесь и получайте знания</p>
 
       <div class="big__content">
-        <form
-          action="#"
-          class="big__form"
-          @submit.prevent="handler()"
-        >
-          <div class="big__info">
-            <span class="big__info-name ">Имя, фамилия</span>
-            <input
-              type="text"
-              class="big__input name"
-              v-model="userName"
-            >
-          </div>
-          <div class="big__info">
-            <span class="big__info-name">Пароль</span>
-            <input
-              type="password"
-              class="big__input"
-              v-model="userPass"
-            >
-          </div>
-          <button
-            class="big__form-btn"
-            type="submit"
-          >Регистрация</button>
-        </form>
-
-        <img
-          src="../assets/images/space/space (6).png"
-          alt=""
-          class="big__img"
-        >
+        <p class="big__content-text">Обучение может быть не только полезным, но и увлекательным! Попробуйте наши
+          образовательные игры и квизы,
+          разработанные для закрепления и проверки знаний в интерактивной форме. Играя, вы будете учиться быстрее!</p>
+        <div class="big__content-robot">
+          <img
+            src="../assets/images/spaceMan.png"
+            alt="SpaceMan"
+            class="big__content-img"
+          >
+          <a
+            href="#"
+            class="big__content-btn"
+            @click="changeStatusOnTrue()"
+          >Войти</a>
+        </div>
       </div>
     </div>
   </div>
@@ -58,6 +50,12 @@
   &__title {
     font-size: 2rem;
     padding-top: 2.25rem;
+    color: $whiteColor;
+  }
+
+  &__subtitle {
+    color: $whiteColor;
+
   }
 
   &__content {
@@ -65,76 +63,30 @@
     align-items: center;
     justify-content: space-between;
 
-  }
-
-  &__img {
-    width: 40%;
-  }
-
-}
-
-.big {
-
-
-  &__form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1.25rem;
-    width: 35.5rem;
-    height: 32.5rem;
-
-    border-radius: 1rem;
-    padding: 5.75rem;
-
-
-    &-title {
-      font-weight: bold;
-      font-size: 1.3rem;
+    &-img {
+      width: 30rem;
     }
 
-
+    &-robot {
+      position: relative;
+    }
 
     &-btn {
-      padding: .625rem;
-      color: $whiteColor;
-      font-family: Visitor;
-      border: none;
-      border-radius: 0.5rem;
-      letter-spacing: 0.15rem;
-      cursor: pointer;
+      position: absolute;
+      top: 6.25rem;
+      right: 4.375rem;
       background-color: $accentColor;
+      padding: .625rem 1.25rem;
+      border-radius: 1rem;
+      cursor: pointer;
+      color: $whiteColor;
+      text-decoration: none;
+    }
 
-      &:hover {
-        box-shadow: 0 0 20px 0px $accentColor;
-      }
+    &-text {
+      color: $whiteColor;
+      font-size: 1.4rem;
     }
   }
-
-  &__info {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    border: 3px solid $accentColor;
-    border-radius: 0.5rem;
-    padding: .625rem 1.25rem;
-
-  }
-
-  &__input {
-    border: none;
-    outline: none;
-    font-size: 1rem;
-    background-color: transparent;
-    color: $whiteColor;
-
-  }
-
-
-}
-
-.name {
-  font-family: Visitor;
 }
 </style>
