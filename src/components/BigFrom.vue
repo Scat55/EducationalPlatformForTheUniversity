@@ -64,7 +64,7 @@ const changeStatusOnTrue = () => {
 
   &__subtitle {
     color: $whiteColor;
-    margin-bottom: 3rem;
+
   }
 
   &__content {
@@ -73,13 +73,13 @@ const changeStatusOnTrue = () => {
     justify-content: space-between;
 
     &-img {
-      width: 30rem;
+      align-self: start;
+      width: 25rem;
     }
 
     &-info {
       display: flex;
       flex-direction: column;
-      gap: 4rem;
     }
 
     &-robot {
@@ -88,8 +88,8 @@ const changeStatusOnTrue = () => {
 
     &-btn {
       position: absolute;
-      top: 6.25rem;
-      right: 4.375rem;
+      top: 5.25rem;
+      right: 3.375rem;
       background-color: $accentColor;
       padding: .625rem 1.25rem;
       border-radius: 1rem;
@@ -107,6 +107,7 @@ const changeStatusOnTrue = () => {
     &-text {
       color: $whiteColor;
       font-size: 1.4rem;
+      margin-top: 3rem;
     }
   }
 }
