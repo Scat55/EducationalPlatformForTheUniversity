@@ -13,6 +13,7 @@ export default {
   },
   data() {
     return {
+      // Потом удалим , как тест списка.
       zadania: [{
         title: "Сложение двух числе",
         topic: "Математика",
@@ -115,32 +116,34 @@ export default {
   height: 100vh;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto 1fr; /* Строка для div1 и остальное пространство для div2 и div3 */
-  gap: 10px; /* Расстояние между элементами */
+  grid-template-rows: auto 1fr;
+  gap: 10px;
 }
 
-.div1 {
-  grid-column: 1 / span 3; /* div1 занимает 3 столбца */
-  text-align: center;
-}
-
-.div2 {
-  grid-row: 2 / span 1; /* div2 находится во второй строке */
-  text-align: center;
-  height: 400px;
-}
-
-.div3 {
-  grid-column: 2 / span 2; /* div3 находится в третьем столбце */
-  grid-row: 2 / span 1; /* div3 находится во второй строке */
-  text-align: center;
-}
-
-/* Для оформления и добавления рамок можно добавить следующий стиль: */
 .div1, .div2, .div3 {
   border: 2px solid $lightBlueColor;
   padding: 10px;
   border-radius: 1rem;
+}
+
+.div1 {
+  grid-column: 1 / span 3;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.div2 {
+  grid-row: 2 / span 1;
+  text-align: center;
+  height: 300px;
+  margin-top: 10px;
+}
+
+.div3 {
+  grid-column: 2 / span 2;
+  grid-row: 2 / span 1;
+  text-align: center;
+  border: none;
 }
 </style>
 
