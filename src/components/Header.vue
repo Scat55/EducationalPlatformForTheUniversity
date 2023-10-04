@@ -3,6 +3,17 @@ import { RouterLink } from 'vue-router';
 import { useCounterStore } from '../stores/counter';
 
 const status = useCounterStore();
+
+const body = document.querySelector('body')
+
+
+const changeStatusOnTrue = () => {
+  status.statusForm = true
+  body.style.overflow = "hidden"
+}
+
+
+
 </script>
 
 <template>
@@ -27,7 +38,7 @@ const status = useCounterStore();
             <li class="header__logo-item">Полезное</li>
             <li
               class="header__logo-item login"
-              @click="status.statusForm = true"
+              @click="changeStatusOnTrue()"
             >
               <img
                 src="../assets/images/userLog.png"

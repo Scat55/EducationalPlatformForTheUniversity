@@ -7,6 +7,7 @@ import { useCounterStore } from '../stores/counter';
 
 const status = useCounterStore()
 
+
 </script>
 
 <template>
@@ -15,11 +16,11 @@ const status = useCounterStore()
     <Header />
   </header>
 
-  <main>
+  <main class="main">
     <Robot />
 
   </main>
 </template>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss"></style>

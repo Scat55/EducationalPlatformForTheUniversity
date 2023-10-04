@@ -17,6 +17,13 @@ const handler = () => {
   console.log(`${userName.value}, ${userPass.value}, ${userProf.value}`)
   router.push('/')
 }
+
+const body = document.querySelector('body')
+
+const changeStatusOnFalse = () => {
+  status.statusForm = false
+  body.style.overflow = ""
+}
 </script>
 
 <template>
@@ -35,7 +42,7 @@ const handler = () => {
           src="../assets/images/closeForm.png"
           alt="CloseForm"
           class="reg__form-img"
-          @click="status.statusForm = false"
+          @click="changeStatusOnFalse()"
         >
 
         <div class="reg__info">
