@@ -28,18 +28,22 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(3, 1fr);
+  background: white;
+  overflow: hidden;
 }
 
 .task:hover {
-  border: 3px solid #00DFCC;
+  border: 3px solid $lightBlueColor;
 }
 
 .title {
-  margin-top: 15px;
+  padding-top: 15px;
   grid-column: 1 / span 4;
   grid-row: 1 / span 1;
   font-size: 20px;
+  //border-radius: 1rem;
   border-bottom: 1px solid $lightBlueColor;
+  background: $lightBlueColor;
 }
 
 

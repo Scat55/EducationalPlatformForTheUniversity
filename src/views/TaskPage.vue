@@ -101,6 +101,7 @@ export default {
 }
 
 .main {
+  margin-top: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -115,38 +116,37 @@ export default {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto 1fr;
-  /* Строка для div1 и остальное пространство для div2 и div3 */
   gap: 10px;
-  /* Расстояние между элементами */
 }
 
-.div1 {
-  grid-column: 1 / span 3;
-  /* div1 занимает 3 столбца */
-  text-align: center;
-}
-
-.div2 {
-  grid-row: 2 / span 1;
-  /* div2 находится во второй строке */
-  text-align: center;
-  height: 400px;
-}
-
-.div3 {
-  grid-column: 2 / span 2;
-  /* div3 находится в третьем столбце */
-  grid-row: 2 / span 1;
-  /* div3 находится во второй строке */
-  text-align: center;
-}
-
-/* Для оформления и добавления рамок можно добавить следующий стиль: */
 .div1,
 .div2,
 .div3 {
   border: 2px solid $lightBlueColor;
   padding: 10px;
   border-radius: 1rem;
-}</style>
+}
+
+.div1 {
+  grid-column: 1 / span 3;
+  text-align: center;
+  background: white;
+}
+
+.div2 {
+  margin-top: 10px;
+  grid-row: 2 / span 1;
+  text-align: center;
+  height: 400px;
+  background: white;
+}
+
+.div3 {
+  grid-column: 2 / span 2;
+  grid-row: 2 / span 1;
+  text-align: center;
+  border: none;
+}
+
+</style>
 
