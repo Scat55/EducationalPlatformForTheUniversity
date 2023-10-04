@@ -81,6 +81,12 @@ const changeStatusOnTrue = () => {
       cursor: pointer;
       color: $whiteColor;
       text-decoration: none;
+      box-shadow: 0 0 10px 10px #2a7afc;
+      transition: all .3s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
 
     &-text {
