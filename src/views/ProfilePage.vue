@@ -1,8 +1,10 @@
 <script setup>
 
 import Header from "@/components/Header.vue";
-import Profile from "@/components/Profile.vue";
+import Profile from "@/components/Profile/Profile.vue";
 import Footer from "@/components/Footer.vue";
+import AchivmentStudent from "@/components/Profile/AchivmentStudent.vue";
+import RatingTeacher from "@/components/Profile/RatingTeacher.vue";
 </script>
 
 <script>
@@ -25,6 +27,22 @@ export default {
         email: 'a1exa2@adsaw.ry',
         changePass: false
 
+      },
+      isActiveComponents: {
+        profile: false,
+        achivStud: false,
+        ratingTeach: false,
+      },
+    }
+  },
+  methods: {
+    switchTab(nameTab) {
+      for (const key in this.isActiveComponents){
+        if (key !== nameTab){
+          this.isActiveComponents[key] = false;
+        } else {
+          this.isActiveComponents[key] = true;
+        }
       }
     }
   }
@@ -36,15 +54,17 @@ export default {
   <div class="container">
     <div class="window">
       <div class="left_div">
-        <div class="tab">Профиль</div>
-        <div class="tab">Профиль</div>
-        <div class="tab">Профиль</div>
-        <div class="tab">Профиль</div>
-        <div class="tab">Профиль</div>
-        <div class="tab">Профиль</div>
+        <div class="tab" @click="switchTab('profile')">Профиль</div>
+        <div class="tab">Мои добавленные задачи</div>
+        <div class="tab" @click="switchTab('achivStud')">Достижения</div>
+        <div class="tab" @click="switchTab('ratingTeach')">Рейтинг</div>
+        <div class="tab">Мои решенные задачи</div>
+        <div class="tab">Задачи на проверку</div>
       </div>
       <div class="right_div">
-        <Profile :person="person"/>
+        <Profile v-show="isActiveComponents.profile === true" :person="person"/>
+        <AchivmentStudent v-show="isActiveComponents.achivStud === true"/>
+        <RatingTeacher v-show="isActiveComponents.ratingTeach === true"/>
       </div>
     </div>
   </div>

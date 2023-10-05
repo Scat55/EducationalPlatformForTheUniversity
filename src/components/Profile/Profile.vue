@@ -9,7 +9,12 @@ export default {
       type: Object,
       required: true
     }
-  }
+  },
+  data() {
+    return{
+      edit: false  // Переменая отвечает за редактирование, надо реализовать кнопку редактировать профиль. Инпуты в обычной состояние сделать не изменяемые и чтобы не выделялись. Но при нажатии на кнопку они сразу будут доступные.
+    }
+  },
 }
 </script>
 
@@ -34,9 +39,9 @@ export default {
     </div>
 
     <div class="date_person_class">
-      <p>Класс</p>
-      <p>Учитель по</p>
-      <input type="text">
+      <p v-if="person.student === true">Класс {{person.class}}</p>
+      <p v-if="person.teacher === true">Учитель по</p>
+      <input type="text" v-if="edit === true">
     </div>
 
     <div class="date_person_email">
@@ -59,7 +64,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import '../assets/styles/styles.scss';
+@import '../../assets/styles/styles';
 
 .main {
   font-size: 25px;
