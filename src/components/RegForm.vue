@@ -13,13 +13,15 @@ const activeClass = ref(true)
 const state = reactive({
   fullName: '',
   password: '',
-  proffesion: [{ id: 0, name: 'Ученик' }, { id: 0, name: 'Учитель' }]
+  proffesion: [{ id: 0, name: 'Ученик' }, { id: 1, name: 'Учитель' }],
+  gender: [{ id: 0, name: 'Мужской' }, { id: 1, name: 'Женский' }]
 })
 
 const rules = {
   fullName: { required },
   password: { required, minLength: minLength(8) },
-  proffesion: { required }
+  proffesion: { required },
+  gender: { required }
 }
 
 const v$ = useVuelidate(rules, state)
@@ -28,10 +30,11 @@ const handler = async () => {
   const result = await v$.value.$validate();
   if (result) {
     router.push('/profile')
+    // console.log(`${state.fullName}, ${state.password}, ${state.proffesion.name}, ${state.gender.name}`)
   } else {
-    alert('Error')
+    alert('Есть ошибки в форме')
   }
-  console.log(state.proffesion.name)
+
 }
 
 // Появлени формы и отключение скролла
@@ -83,6 +86,21 @@ const changeStatusOnFalse = () => {
           v-for="error in v$.fullName.$errors"
           :key="error.$uid"
         > {{ error.$message }}</small>
+
+        <select
+          name="gender"
+          id="gender"
+          class="reg__form-prof"
+          v-model="state.gender.name"
+        >
+          <option
+            v-for="gender  in  state.gender "
+            :value="gender.name"
+            class="reg__from-option"
+          >
+            {{ gender.name }}
+          </option>
+        </select>
 
         <select
           name="proffesion"
