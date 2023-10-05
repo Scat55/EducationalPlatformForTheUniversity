@@ -1,23 +1,40 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 import { useRouter } from 'vue-router';
+import { useVuelidate } from '@vuelidate/core';
+import { required, minLength } from '@vuelidate/validators';
 import { useCounterStore } from '../stores/counter';
 
 const status = useCounterStore();
-
 const router = useRouter();
-
-const proffesion = [{ id: 0, name: 'Ученик' }, { id: 0, name: 'Учитель' }]
-
-const userName = ref('');
-const userPass = ref('')
 const userProf = ref({})
+const activeClass = ref(true)
 
-const handler = () => {
-  console.log(`${userName.value}, ${userPass.value}, ${userProf.value}`)
-  router.push('/')
+const state = reactive({
+  fullName: '',
+  password: '',
+  proffesion: [{ id: 0, name: 'Ученик' }, { id: 0, name: 'Учитель' }]
+})
+
+const rules = {
+  fullName: { required },
+  password: { required, minLength: minLength(8) },
+  proffesion: { required }
 }
 
+const v$ = useVuelidate(rules, state)
+// Валидация формы
+const handler = async () => {
+  const result = await v$.value.$validate();
+  if (result) {
+    router.push('/profile')
+  } else {
+    alert('Error')
+  }
+  console.log(state.proffesion.name)
+}
+
+// Появлени формы и отключение скролла
 const body = document.querySelector('body')
 
 const changeStatusOnFalse = () => {
@@ -50,31 +67,38 @@ const changeStatusOnFalse = () => {
           <input
             type="text"
             class="reg__input name"
-            v-model="userName"
+            v-model="state.fullName"
           >
+
         </div>
         <div class="reg__info">
           <span class="reg__info-name">Пароль</span>
           <input
             type="password"
             class="reg__input"
-            v-model="userPass"
+            v-model="state.password"
           >
         </div>
+        <small
+          v-for="error in v$.fullName.$errors"
+          :key="error.$uid"
+        > {{ error.$message }}</small>
+
         <select
           name="proffesion"
           id="proffesion"
           class="reg__form-prof"
-          v-model="userProf"
+          v-model="state.proffesion.name"
         >
           <option
-            v-for="prof in proffesion"
+            v-for=" prof  in  state.proffesion "
             :value="prof.name"
             class="reg__from-option"
           >
             {{ prof.name }}
           </option>
         </select>
+
         <button
           class="reg__form-btn"
           type="submit"
@@ -83,6 +107,14 @@ const changeStatusOnFalse = () => {
             class="reg__auth"
             @click="router.push('/auth')"
           > Войти</span> </p>
+
+        <small
+          :class="{ activeClass: activeClass }"
+          v-for="error in v$.$errors"
+          :key="error.$uid"
+        >
+          {{ error.$property }} - {{ error.$message }}
+        </small>
       </form>
 
 
@@ -196,5 +228,10 @@ const changeStatusOnFalse = () => {
 
 .name {
   font-family: Visitor;
+}
+
+
+.activeClass {
+  color: red;
 }
 </style>

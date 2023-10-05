@@ -4,7 +4,7 @@ import RegForm from '@/components/RegForm.vue';
 import Robot from '../components/Robot.vue';
 import Computer from '../components/Computer.vue';
 import Positive from '../components/Positive.vue';
-import BigForm from '../components/BigFrom.vue';
+import BigForm from '@/components/BigFrom.vue';
 import LastInfo from '../components/LastInfo.vue';
 import Footer from '../components/Footer.vue';
 import { useCounterStore } from '../stores/counter';
