@@ -13,20 +13,15 @@ export default {
     return {
       person: {
         name: 'Sasha',
-        changeName: false,
         lastname: 'Volkov',
-        changeLastName: false,
         patronymic: 'Segeevich',
-        changePatr: false,
         birthday: '14.03.2002',
-        changeBirthDay: false,
-        student: true,
-        teacher: false,
+        gender: "Мальчик",
+        student: false,
         class: '11',
-        changeClass: false,
+        item: 'Математика',
         email: 'a1exa2@adsaw.ry',
-        changePass: false
-
+        expert: false
       },
       isActiveComponents: {
         profile: false,
@@ -37,8 +32,8 @@ export default {
   },
   methods: {
     switchTab(nameTab) {
-      for (const key in this.isActiveComponents){
-        if (key !== nameTab){
+      for (const key in this.isActiveComponents) {
+        if (key !== nameTab) {
           this.isActiveComponents[key] = false;
         } else {
           this.isActiveComponents[key] = true;
@@ -54,12 +49,14 @@ export default {
   <div class="container">
     <div class="window">
       <div class="left_div">
-        <div class="tab" @click="switchTab('profile')">Профиль</div>
-        <div class="tab">Мои добавленные задачи</div>
-        <div class="tab" @click="switchTab('achivStud')">Достижения</div>
-        <div class="tab" @click="switchTab('ratingTeach')">Рейтинг</div>
-        <div class="tab">Мои решенные задачи</div>
-        <div class="tab">Задачи на проверку</div>
+        <div class="tabs">
+          <div class="tab" @click="switchTab('profile')">Профиль</div>
+          <div class="tab">Мои добавленные задачи</div>
+          <div class="tab" v-if="person.student === true" @click="switchTab('achivStud')">Достижения</div>
+          <div class="tab" v-if="person.student === false" @click="switchTab('ratingTeach')">Рейтинг</div>
+          <div class="tab">Мои решенные задачи</div>
+          <div class="tab">Задачи на проверку</div>
+        </div>
       </div>
       <div class="right_div">
         <Profile v-show="isActiveComponents.profile === true" :person="person"/>
@@ -77,17 +74,19 @@ export default {
 .container {
   margin-top: 80px;
   height: 80vh;
-  padding: 10px;
+  width: 100%;
+  //padding: 10px;
 }
 
 .window {
   column-gap: 10px;
   margin: 0 auto;
-  width: 1270px;
+  width: 79.375rem;
   height: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr 1fr;
+
 }
 
 
@@ -95,13 +94,22 @@ export default {
   background: $lightBlueColor;
   grid-column: 1 / span 1;
   grid-row: 1 / span 1;
-  display: grid;
-  padding: 14px 3px 0 3px;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(6, 1fr);
+  height: 350px;
+  //display: grid;
+  padding: 10px 3px 0 3px;
+  //grid-template-columns: 1fr;
+  //grid-template-rows: repeat(6, 1fr);
+}
+
+.tabs {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .tab {
+  margin-top: 10px;
   padding: 10px;
   width: 100%;
   height: 40px;

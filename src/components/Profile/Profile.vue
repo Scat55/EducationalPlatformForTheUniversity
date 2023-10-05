@@ -1,5 +1,5 @@
 <script setup>
-import Footer from "@/components/Footer.vue";
+
 </script>
 
 <script>
@@ -11,8 +11,17 @@ export default {
     }
   },
   data() {
-    return{
-      edit: false  // Переменая отвечает за редактирование, надо реализовать кнопку редактировать профиль. Инпуты в обычной состояние сделать не изменяемые и чтобы не выделялись. Но при нажатии на кнопку они сразу будут доступные.
+    return {
+      edit: false,
+      // Переменая отвечает за редактирование, надо реализовать кнопку редактировать профиль. Инпуты в обычной состояние сделать не изменяемые и чтобы не выделялись. Но при нажатии на кнопку они сразу будут доступные.
+      changeDate: {
+        changeName: false,
+        changeLastName: false,
+        changePatronymic: false,
+        changeBirthDay: false,
+        changeClass: false,
+        changePass: false,
+      }
     }
   },
 }
@@ -22,40 +31,47 @@ export default {
 
   <div class="main">
     <div class="date_person_fio">
-      <div class="name"><p>Имя</p>
-        <input type="text" v-bind:value="person.name"></div>
+      <div class="name"><p>Имя:</p>
+        <input type="text" class="InputChangeNO" v-bind:value="person.name" :disabled="!edit"></div>
       <div class="lastName">
-        <p>Фамилия</p>
-        <input type="text" v-bind:value="person.lastname">
+        <p>Фамилия:</p>
+        <input type="text" class="InputChangeNO" v-bind:value="person.lastname" :disabled="!edit">
       </div>
       <div class="patronymic">
-        <p>Отчество</p>
-        <input type="text" v-bind:value="person.patronymic">
+        <p>Отчество:</p>
+        <input type="text" class="InputChangeNO" v-bind:value="person.patronymic" :disabled="!edit">
       </div>
     </div>
 
-    <div class="date_person_birthday">
+    <div class="date_person_birthday_gender">
       <p>Дата рождения {{ person.birthday }}</p>
+      <p>Пол: {{person.gender}}</p>
     </div>
 
     <div class="date_person_class">
-      <p v-if="person.student === true">Класс {{person.class}}</p>
-      <p v-if="person.teacher === true">Учитель по</p>
-      <input type="text" v-if="edit === true">
+      <div v-if="person.student === true"><label>Класс</label>&nbsp;<input class="InputChangeNO" type="text" :disabled="!edit" :value="person.class"></div>
+      <label v-if="person.student === false">Учитель по</label>&nbsp;<input class="InputChangeNO" type="text" :disabled="!edit" :value="person.item">
     </div>
 
     <div class="date_person_email">
-      <p>Почта {{person.email}}</p>
+      <p>Почта {{ person.email }}</p>
     </div>
 
-    <div class="change_password">
-      <button v-if="person.changePass === false" @click="person.changePass = true">Изменить пароль</button>
-      <div v-if="person.changePass === true">
-        <label>Введите пароль</label><input type="password"><br>
-        <label>Введите новый</label><input type="password"><br>
-        <label>повторите новый пароль</label><input type="password"><br>
-        <button>Подтвердить изменение</button>
-        <button @click="person.changePass = false">Отмена</button>
+    <div class="change_profile">
+      <div class="change_password" v-if="edit === false">
+        <button v-if="changeDate.changePass === false" @click="changeDate.changePass = true">Изменить пароль</button>
+        <div v-if="changeDate.changePass === true">
+          <label>Введите пароль</label><input type="password"><br>
+          <label>Введите новый</label><input type="password"><br>
+          <label>повторите новый пароль</label><input type="password"><br>
+          <button>Подтвердить изменение</button>
+          <button @click="changeDate.changePass = false">Отмена</button>
+        </div>
+      </div>
+      <div class="edit_profile" v-if="changeDate.changePass === false">
+        <button @click="edit = true" v-if="edit === false">Изменить профиль</button>
+        <button v-show="edit === true" @click="edit = false">Подтвердить изменения</button>
+        <button v-show="edit === true" @click="edit = false">Отмена изменения</button>
       </div>
     </div>
 
@@ -78,9 +94,21 @@ export default {
   overflow-x: hidden;
 }
 
+.InputChangeNO {
+  color: black;
+  background: none;
+  border: none;
+  font-family: Visitor;
+  font-size: 25px;
+}
+
 .date_person_fio {
   grid-row: 1 / span 1;
   grid-column: 1 / span 1;
+}
+
+.date_person_fio div {
+  margin-bottom: 15px;
 }
 
 .date_person_birthday {
@@ -98,7 +126,7 @@ export default {
   grid-column: 1 / span 1;
 }
 
-.change_password {
+.change_profile {
   grid-row: 5 / span 1;
   grid-column: 1 / span 1;
 }
