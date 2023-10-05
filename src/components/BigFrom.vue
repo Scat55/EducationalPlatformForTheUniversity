@@ -28,19 +28,18 @@ const changeStatusOnTrue = () => {
             единомышленников, готовых поделиться своими знаниями, ответить на ваши вопросы и помочь в решении сложных
             задач.
           </p>
-        </div>
-        <div class="big__content-robot">
-          <img
-            src="../assets/images/spaceMan.png"
-            alt="SpaceMan"
-            class="big__content-img"
-          >
           <a
             href="#"
             class="big__content-btn"
             @click="changeStatusOnTrue()"
           >Войти</a>
         </div>
+        <img
+          src="../assets/images/spaceMan.png"
+          alt="SpaceMan"
+          class="big__content-img"
+        >
+
       </div>
     </div>
   </div>
@@ -82,16 +81,12 @@ const changeStatusOnTrue = () => {
       flex-direction: column;
     }
 
-    &-robot {
-      position: relative;
-    }
-
     &-btn {
-      position: absolute;
-      top: 5.25rem;
-      right: 3.375rem;
+      width: 12.5rem;
+      text-align: center;
       background-color: $accentColor;
       padding: .625rem 1.25rem;
+      margin-top: 2.25rem;
       border-radius: 1rem;
       cursor: pointer;
       color: $whiteColor;
