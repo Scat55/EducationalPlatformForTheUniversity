@@ -74,14 +74,15 @@ export default {
 .container {
   margin-top: 80px;
   height: 80vh;
-  width: 100%;
+  justify-content: center;
+  //width: 100%;
   //padding: 10px;
 }
 
 .window {
   column-gap: 10px;
   margin: 0 auto;
-  width: 79.375rem;
+  //width: 79.375rem;
   height: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
